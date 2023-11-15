@@ -1,0 +1,50 @@
+<div class="container col-8">
+  <form [formGroup]="pazienteForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">codice_fiscale</label>
+      <input type="text" class="form-control" id="codice_fiscale" name="codice_fiscale" formControlName="codice_fiscale" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefault01" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="nome" name="nome" formControlName="nome" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefault02" class="form-label">Cognome</label>
+      <input type="text" class="form-control" id="cognome" name="cognome" formControlName="cognome" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">dataNascita</label>
+      <input type="text" class="form-control" id="dataNascita" name="dataNascita" formControlName="dataNascita" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">luogoNascita</label>
+      <input type="text" class="form-control" id="luogoNascita" name="luogoNascita" formControlName="luogoNascita" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">cellulare</label>
+      <input type="text" class="form-control" id="cellulare" name="cellulare" formControlName="cellulare" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">email</label>
+      <input type="text" class="form-control" id="email" name="email" formControlName="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="validationDefaultUsername" class="form-label">indirizzo</label>
+      <input type="text" class="form-control" id="indirizzo" name="indirizzo" formControlName="indirizzo" required>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Salva</button>
+    </div>
+  </form>
+
+
+  </div>
+  <h2>Lista Pazienti</h2>
+  <ul>
+    <li *ngFor="let paziente of pazienti">
+      {{ paziente.nome }} {{ paziente.cognome }}
+      <button class="btn btn-info" (click)="selezionaPaziente(paziente)">Modifica</button>
+      <button class="btn btn-danger" (click)="eliminarePaziente(paziente.id)">Elimina</button>
+    </li>
+  </ul>
